@@ -1,6 +1,75 @@
 import React, { Component } from "react";
+import {render} from 'react-dom'
 import "./index.css";
-class Textareademo extends Component {
+
+
+
+class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      text:''
+    };
+  }
+
+  showFile = async (e) => {
+    e.preventDefault()
+    const reader = new FileReader()
+    reader.onload = async (e) => { 
+      this.setState({text: e.target.result})
+    };
+    reader.readAsText(e.target.files[0])
+  }
+
+  render = () => {
+
+    return (
+    <div className="textBox">
+      <h3 className="text">Insert Text File 1</h3>
+      <input  type="file" onChange={(e) => this.showFile(e)}/>
+      <p className="text">{this.state.text}</p>
+    </div>
+    )
+  }
+}
+
+export default App;
+
+/*class Textfile extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      fileName: '',
+      fileContent: ''
+    };
+  }
+  handleFileChange = e =>{
+    const files = e.target.files[0];
+    const reader = new FileReader();
+    reader.readAsText(files.target.files[0]);
+    reader.onload = () =>{
+      this.setState({fileName:e.name , fileContent: reader.results});
+    }
+    reader.onerror = () =>{
+      console.log('file erros',reader.error)
+    }
+  }
+  render(){
+    return(
+      <div>
+        <h1>File reader</h1>
+        <input type="file" onChange={this.handleFileChange} ></input>
+        <br /><br />
+        <p>{this.state.fileName}</p>
+        <p>{this.state.fileContent}</p>
+      </div>
+    )
+  }
+}
+
+export default Textfile*/
+/*class Textareademo extends Component {
   constructor() {
     super();
     this.state = {
@@ -29,4 +98,4 @@ class Textareademo extends Component {
   }
 }
 
-export default Textareademo;
+export default Textareademo;*/

@@ -19,9 +19,8 @@ export default function VideoInput(props) {
   };
 
   
-  return (
+  return(
     <div className="VideoInput">
-      <h2>Upload a Video</h2>
       <input
         ref={inputRef}
         className="VideoInput_input"
@@ -39,6 +38,7 @@ export default function VideoInput(props) {
           src={source}
         />
       )}
+      <h3 className="text">Upload a Video</h3>
       <button onClick={handleChoose} className="button">Choose</button>
       
     </div>

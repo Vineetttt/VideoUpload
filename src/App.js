@@ -1,17 +1,15 @@
 import React from "react";
 import VideoInput from "./VideoInput";
+import TextFileReader from "./textArea";
 import "./index.css";
-import Simpletextarea from "./textArea";
 
 export default function App() {
   return (
     <>
-    <div className="final">
+    <div className="final grid grid-cols-3">
       <VideoInput/>
-      <Simpletextarea />
-    </div>
-    <div className="save">
-     <button className="button">Save Data</button>
+      <TextFileReader />
+      <TextFileReader />
     </div>
     </>
   );
